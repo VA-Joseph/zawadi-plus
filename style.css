@@ -1,17 +1,49 @@
-/* Zawadi+ Joyful Visual Theme */
+
+/* ---------------------------
+   Zawadi+ Loyalty Rewards Theme
+   --------------------------- */
+
+:root {
+  --primary-color: #7b2cbf;
+  --accent-color: #9d4edd;
+  --success-color: #2b9348;
+  --warning-color: #d97706;
+  --danger-color: #f87171;
+  --danger-dark: #dc2626;
+  --button-color: #34d399;
+  --button-hover: #059669;
+  --text-color: #333;
+  --bg-gradient: linear-gradient(to right, #fef3c7, #fde68a);
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* ----- Base Styles ----- */
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #f9f7fc;
-  color: #333;
-  text-align: center;
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  color: var(--text-color);
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  text-align: center;
 }
+
+/* ----- Container Layout ----- */
+
+.container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* ----- Typography ----- */
 
 h1 {
   font-size: 2.5rem;
-  color: #7b2cbf;
+  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
@@ -19,53 +51,91 @@ h1::after {
   content: " 🎉";
 }
 
-form {
-  background: #fff;
-  max-width: 400px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(123, 44, 191, 0.1);
+p {
+  margin-top: -0.5rem;
+  font-size: 1.1rem;
+  color: #555;
 }
 
-input,
-select,
-button {
-  font-size: 1rem;
+/* ----- Form & Inputs ----- */
+
+input[type="text"] {
   padding: 0.8rem;
-  margin: 0.5rem 0;
   width: 100%;
-  border-radius: 12px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
   border: 1px solid #ccc;
+  margin-bottom: 1rem;
   box-sizing: border-box;
 }
 
-input:focus,
-select:focus {
+input:focus {
   outline: none;
-  border-color: #7b2cbf;
+  border-color: var(--primary-color);
   box-shadow: 0 0 5px #c77dff;
 }
 
+/* ----- Buttons ----- */
+
 button {
-  background: #7b2cbf;
-  color: white;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
   font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--button-color);
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 0.5rem;
 }
 
 button:hover {
-  background: #9d4edd;
+  background-color: var(--button-hover);
   transform: scale(1.03);
 }
 
+.reset-btn {
+  background-color: var(--danger-color);
+}
+
+.reset-btn:hover {
+  background-color: var(--danger-dark);
+}
+
+/* ----- Display Sections ----- */
+
+.visit-count,
+.reward-message,
+.customer-list {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
 #rewardDisplay {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-  color: #2b9348;
+  color: var(--success-color);
   font-weight: bold;
 }
+
+/* ----- Animations ----- */
+
+.celebrate {
+  animation: pop 0.4s ease-in-out infinite alternate;
+  color: var(--warning-color);
+  font-weight: bold;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* ----- Footer ----- */
 
 footer {
   margin-top: 2rem;
@@ -73,14 +143,15 @@ footer {
   color: #888;
 }
 
-/* Responsive tweaks */
+/* ----- Responsive Design ----- */
+
 @media screen and (max-width: 500px) {
   body {
     padding: 1rem;
   }
 
-  form {
-    padding: 1.2rem;
+  .container {
+    padding: 1.5rem;
   }
 
   h1 {

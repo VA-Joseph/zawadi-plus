@@ -1,6 +1,8 @@
 function addVisit() {
-  const phone = document.getElementById("phoneInput").value.trim();
-  if (!phone) return alert("Please enter a valid phone number.");
+  const phoneInput = document.getElementById("phoneInput");
+  const phone = phoneInput.value.trim();
+
+  if (!phone) return alert("📱 Please enter a valid phone number.");
 
   let data = JSON.parse(localStorage.getItem("zawadiPlusData")) || {};
 
@@ -10,24 +12,32 @@ function addVisit() {
     data[phone]++;
   }
 
-  if (data[phone] === 5) {
-    alert(`🎁 ${phone} just earned a reward!`);
-    data[phone] = 0; // Reset after reward
-  }
-
+  // Save to storage
   localStorage.setItem("zawadiPlusData", JSON.stringify(data));
-  displayData();
-  document.getElementById("phoneInput").value = "";
-}
 
-function displayData() {
-  let data = JSON.parse(localStorage.getItem("zawadiPlusData")) || {};
-  const container = document.getElementById("customerData");
+  // Show updated visit count
+  document.getElementById("visitDisplay").innerText = `📊 Visits: ${data[phone]}`;
 
-  container.innerHTML = "<h3>Customer Visits:</h3>";
-  for (let phone in data) {
-    container.innerHTML += `<p>${phone}: ${data[phone]} visit(s)</p>`;
+  // Check for reward
+  const rewardDisplay = document.getElementById("rewardDisplay");
+  if (data[phone] === 5) {
+    rewardDisplay.innerText = `🎉 ${phone} just earned a reward! 🎁`;
+    rewardDisplay.classList.add("celebrate");
+
+    // Reset visits after reward
+    data[phone] = 0;
+    localStorage.setItem("zawadiPlusData", JSON.stringify(data));
+
+    setTimeout(() => {
+      rewardDisplay.innerText = "✨ No rewards yet — start earning!";
+      rewardDisplay.classList.remove("celebrate");
+      document.getElementById("visitDisplay").innerText = `📊 Visits: 0`;
+    }, 4000);
+  } else {
+    rewardDisplay.innerText = "✅ Visit added successfully!";
+    rewardDisplay.classList.remove("celebrate");
   }
-}
 
-window.onload = displayData;
+  // Clear input
+  phoneInput.value = "";
+}
