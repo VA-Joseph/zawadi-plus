@@ -33,7 +33,7 @@ Each phone number is tracked individually. Switching between numbers will resume
 
 **Joseph Mshana**
 Software Developer | Data Enthusiast | AI Dreamer
-📍 Tanzania | 🌐 [va-joseph.github.io/](https://va-joseph.github.io/)
+📍 Tanzania | 🌐 [va-joseph.github.io/myportfolio/](https://va-joseph.github.io/myportfolio/)
 
 ---
 
