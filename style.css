@@ -1,50 +1,89 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #ffecd2, #fcb69f);
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
+/* Zawadi+ Joyful Visual Theme */
 
-.container {
-  max-width: 400px;
-  margin: 4rem auto;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9f7fc;
+  color: #333;
   text-align: center;
+  margin: 0;
+  padding: 2rem;
 }
 
 h1 {
-  color: #ff5e57;
+  font-size: 2.5rem;
+  color: #7b2cbf;
+  margin-bottom: 1rem;
 }
 
-input {
-  padding: 10px;
+h1::after {
+  content: " 🎉";
+}
+
+form {
+  background: #fff;
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(123, 44, 191, 0.1);
+}
+
+input,
+select,
+button {
+  font-size: 1rem;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
   width: 100%;
-  margin-top: 1rem;
+  border-radius: 12px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #7b2cbf;
+  box-shadow: 0 0 5px #c77dff;
 }
 
 button {
-  margin-top: 1rem;
-  background-color: #ff5e57;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background: #7b2cbf;
+  color: white;
   font-weight: bold;
-  transition: background 0.3s ease;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #e14e4a;
+  background: #9d4edd;
+  transform: scale(1.03);
 }
 
-#customerData {
+#rewardDisplay {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #2b9348;
+  font-weight: bold;
+}
+
+footer {
   margin-top: 2rem;
-  text-align: left;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 500px) {
+  body {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
 }
